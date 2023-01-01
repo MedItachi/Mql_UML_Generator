@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Class id="9096">
+	<Name>org.java.testing.Test</Name>
+	<Fields>
+		<Field>
+			<Modifier>private</Modifier>
+			<type>int</type>
+			<name>nb</name>
+		</Field>
+		<Field>
+			<Modifier>public</Modifier>
+			<type>String</type>
+			<name>name</name>
+		</Field>
+	</Fields>
+	<Methods>
+		<Method>
+			<name>test</name>
+			<returnType>void</returnType>
+			<modifier>private</modifier>
+			<params>
+				<param>int</param>
+			</params>
+		</Method>
+		<Method>
+			<name>testInt</name>
+			<returnType>int</returnType>
+			<modifier>public</modifier>
+			<params>
+				<param>int</param>
+				<param>class java.lang.String</param>
+			</params>
+		</Method>
+	</Methods>
+</Class>

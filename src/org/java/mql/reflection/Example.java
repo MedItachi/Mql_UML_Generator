@@ -1,11 +1,24 @@
 package org.java.mql.reflection;
 
+import java.util.Vector;
+
+
+
 public class Example {
+	
+	public Example() {
+		exp01();
+	}
+	
+	public void exp01() {
+		ClassExplorer cls =  new ClassExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\PackageTest\\bin");
+	}
+	
+	public void exp02() {
+		  Class cls = Vector.class;
+	}
 
 	public static void main(String[] args) {
-		ClassExplorer cls =  new ClassExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\PackageTest\\bin");
-		for(String c:cls.getClassNames()) {
-			System.out.println(c);
-		}
+		new Example();
 	}
 }
