@@ -3,9 +3,14 @@ package org.java.mql.models;
 import java.util.List;
 import java.util.Vector;
 
+import org.java.mql.annotation.XmlElement;
+
 public class ConstructeurModel {
+	 @XmlElement
 	 private String name;
+	 @XmlElement
 	 private String modifier;
+	 @XmlElement(name="Params")
 	 private List<String> params;
 	 
 	public ConstructeurModel() {

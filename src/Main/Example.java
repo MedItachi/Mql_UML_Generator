@@ -4,11 +4,11 @@ import java.util.Vector;
 
 import org.java.mql.controlles.Controller;
 import org.java.mql.persist.Persist;
+import org.java.mql.persist.Persistance;
 import org.java.mql.reflection.ClassExplorer;
 import org.java.mql.reflection.XMLAnnotationTarget;
 
 public class Example {
-	int nb;
 	
 	public Example() {
 		exp01();
@@ -18,8 +18,9 @@ public class Example {
 		ClassExplorer cls = new ClassExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\PackageTest\\bin");
 		Controller cont = new Controller(cls.getClasss());
 		
-		Persist per = new Persist();
-		new XMLAnnotationTarget(cont.getModel(),per);
+		Persistance per = new Persistance(cont.getAllModels());
+		per.saveDoc("PackageDoc");
+		
 	}
 	
 	void exp02() {
