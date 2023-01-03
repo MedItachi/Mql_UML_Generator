@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UmlModel>
+	<CLass>
+		<Name>org.java.testing.Test</Name>
+		<Fields>
+			<Field>
+				<Modifier>private</Modifier>
+			</Field>
+			<Field>
+				<type>int</type>
+			</Field>
+			<Field>
+				<name>nb</name>
+			</Field>
+			<Field>
+				<Modifier>public</Modifier>
+			</Field>
+			<Field>
+				<type>String</type>
+			</Field>
+			<Field>
+				<name>name</name>
+			</Field>
+		</Fields>
+		<Methods>
+			<Method>
+				<name>test</name>
+			</Method>
+			<Method>
+				<returnType>void</returnType>
+			</Method>
+			<Method>
+				<modifier>private</modifier>
+			</Method>
+			<Method>
+				<params>
+					<param>int</param>
+				</params>
+			</Method>
+			<Method>
+				<name>testInt</name>
+			</Method>
+			<Method>
+				<returnType>int</returnType>
+			</Method>
+			<Method>
+				<modifier>public</modifier>
+			</Method>
+			<Method>
+				<params>
+					<param>int</param>
+					<param>class java.lang.String</param>
+				</params>
+			</Method>
+		</Methods>
+		<Constructors>
+			<Constructor>
+				<name>org.java.testing.Test</name>
+			</Constructor>
+			<Constructor>
+				<modifier>public</modifier>
+			</Constructor>
+			<Constructor>
+				<Params>
+					<Param>int</Param>
+				</Params>
+			</Constructor>
+			<Constructor>
+				<name>org.java.testing.Test</name>
+			</Constructor>
+			<Constructor>
+				<modifier>public</modifier>
+			</Constructor>
+			<Constructor>
+				<Params>
+					<Param>int</Param>
+					<Param>class java.lang.String</Param>
+				</Params>
+			</Constructor>
+			<Constructor>
+				<name>org.java.testing.Test</name>
+			</Constructor>
+			<Constructor>
+				<modifier>public</modifier>
+			</Constructor>
+			<Constructor>
+				<Params />
+			</Constructor>
+		</Constructors>
+	</CLass>
+	<CLass>
+		<Name>org.java.testing.tesUnit.dif</Name>
+		<Fields />
+		<Methods />
+		<Constructors>
+			<Constructor>
+				<name>org.java.testing.tesUnit.dif</name>
+			</Constructor>
+			<Constructor>
+				<modifier>public</modifier>
+			</Constructor>
+			<Constructor>
+				<Params />
+			</Constructor>
+		</Constructors>
+	</CLass>
+	<CLass>
+		<Name>org.java.testing.tesUnit.sum.Sum</Name>
+		<Fields />
+		<Methods />
+		<Constructors>
+			<Constructor>
+				<name>org.java.testing.tesUnit.sum.Sum</name>
+			</Constructor>
+			<Constructor>
+				<modifier>public</modifier>
+			</Constructor>
+			<Constructor>
+				<Params />
+			</Constructor>
+		</Constructors>
+	</CLass>
+	<CLass>
+		<Name>org.java.testing.tesUnit.sum.sum2.Sum2</Name>
+		<Fields />
+		<Methods />
+		<Constructors>
+			<Constructor>
+				<name>org.java.testing.tesUnit.sum.sum2.Sum2</name>
+			</Constructor>
+			<Constructor>
+				<modifier>public</modifier>
+			</Constructor>
+			<Constructor>
+				<Params />
+			</Constructor>
+		</Constructors>
+	</CLass>
+	<Interface>
+		<Name>org.java.testing.inter.Inter1</Name>
+		<Methods>
+			<Method>
+				<name>test</name>
+			</Method>
+			<Method>
+				<returnType>void</returnType>
+			</Method>
+			<Method>
+				<modifier>public abstract</modifier>
+			</Method>
+			<Method>
+				<params />
+			</Method>
+			<Method>
+				<name>test</name>
+			</Method>
+			<Method>
+				<returnType>void</returnType>
+			</Method>
+			<Method>
+				<modifier>public abstract</modifier>
+			</Method>
+			<Method>
+				<params>
+					<param>int</param>
+					<param>class java.lang.String</param>
+				</params>
+			</Method>
+		</Methods>
+		<Fields>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>int</type>
+			</Field>
+			<Field>
+				<name>i</name>
+			</Field>
+		</Fields>
+	</Interface>
+	<Enumeration>
+		<name>org.java.testing.enume.Enum1</name>
+		<Enums />
+		<Fields>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>MONDAY</name>
+			</Field>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>TUESDAY</name>
+			</Field>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>WEDNESDAY</name>
+			</Field>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>THURSDAY</name>
+			</Field>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>FRIDAY</name>
+			</Field>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>SATURDAY</name>
+			</Field>
+			<Field>
+				<Modifier>public static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1</type>
+			</Field>
+			<Field>
+				<name>SUNDAY</name>
+			</Field>
+			<Field>
+				<Modifier>private final</Modifier>
+			</Field>
+			<Field>
+				<type>String</type>
+			</Field>
+			<Field>
+				<name>name</name>
+			</Field>
+			<Field>
+				<Modifier>private static final</Modifier>
+			</Field>
+			<Field>
+				<type>Enum1[]</type>
+			</Field>
+			<Field>
+				<name>ENUM$VALUES</name>
+			</Field>
+		</Fields>
+		<Methods>
+			<Method>
+				<name>values</name>
+			</Method>
+			<Method>
+				<returnType>class [Lorg.java.testing.enume.Enum1;</returnType>
+			</Method>
+			<Method>
+				<modifier>public static</modifier>
+			</Method>
+			<Method>
+				<params />
+			</Method>
+			<Method>
+				<name>valueOf</name>
+			</Method>
+			<Method>
+				<returnType>class org.java.testing.enume.Enum1</returnType>
+			</Method>
+			<Method>
+				<modifier>public static</modifier>
+			</Method>
+			<Method>
+				<params>
+					<param>class java.lang.String</param>
+				</params>
+			</Method>
+		</Methods>
+		<Constructors>
+			<Constructor>
+				<name>org.java.testing.enume.Enum1</name>
+			</Constructor>
+			<Constructor>
+				<modifier>private</modifier>
+			</Constructor>
+			<Constructor>
+				<Params>
+					<Param>class java.lang.String</Param>
+					<Param>int</Param>
+					<Param>class java.lang.String</Param>
+				</Params>
+			</Constructor>
+		</Constructors>
+	</Enumeration>
+</UmlModel>

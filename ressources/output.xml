@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Class id="9096">
+<Class id="4154">
 	<Name>org.java.testing.Test</Name>
 	<Fields>
 		<Field>
@@ -32,4 +32,26 @@
 			</params>
 		</Method>
 	</Methods>
+	<Constructors>
+		<Constructor>
+			<name>org.java.testing.Test</name>
+			<modifier>public</modifier>
+			<Params>
+				<Param>int</Param>
+			</Params>
+		</Constructor>
+		<Constructor>
+			<name>org.java.testing.Test</name>
+			<modifier>public</modifier>
+			<Params>
+				<Param>int</Param>
+				<Param>class java.lang.String</Param>
+			</Params>
+		</Constructor>
+		<Constructor>
+			<name>org.java.testing.Test</name>
+			<modifier>public</modifier>
+			<Params />
+		</Constructor>
+	</Constructors>
 </Class>

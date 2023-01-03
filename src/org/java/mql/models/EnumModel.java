@@ -6,12 +6,12 @@ import java.util.Vector;
 import org.java.mql.annotation.Entities;
 import org.java.mql.annotation.XmlElement;
 
-@Entities("CLass")
-public class ClasseModel {
-
-	@XmlElement(name="Name")
+@Entities("Enumeration")
+public class EnumModel {
+	@XmlElement
 	private String name;
-	
+	@XmlElement(name="Enums")
+	private List<Enume> enums;
 	@XmlElement(name="Fields")
 	private List<FieldModel> fields;
 	
@@ -21,23 +21,24 @@ public class ClasseModel {
 	private List<ConstructeurModel> constructors;
 	private List<ClasseModel> supperClass;
 	
-
-	public ClasseModel() {
+	public EnumModel() {
+		this.enums = new Vector<Enume>();
 		fields = new Vector<FieldModel>();
 		methods = new Vector<MethodModel>();
 		constructors = new Vector<ConstructeurModel>();
-		
 	}
-    public ClasseModel(String name,List<FieldModel> fields, List<MethodModel> methods,
-    		List<ConstructeurModel> constructors, List<ClasseModel> supperClass) {
+	public EnumModel(String name, List<Enume> enums,
+			List<FieldModel> fields, List<MethodModel> methods,
+    		List<ConstructeurModel> constructors) {
+		super();
 		this.name = name;
+		this.enums = enums;
 		this.fields = fields;
 		this.methods = methods;
 		this.constructors = constructors;
-		this.supperClass = supperClass;
 	}
-    
-    public void addField(FieldModel fieldModel) {
+	
+	public void addField(FieldModel fieldModel) {
     	fields.add(fieldModel);
     }
     
@@ -64,10 +65,7 @@ public class ClasseModel {
 	public List<ConstructeurModel> getConstructors() {
 		return constructors;
 	}
-
-	public List<ClasseModel> getSupperClass() {
-		return supperClass;
-	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -80,7 +78,41 @@ public class ClasseModel {
 	public void setConstructors(List<ConstructeurModel> constructors) {
 		this.constructors = constructors;
 	}
-	public void setSupperClass(List<ClasseModel> supperClass) {
-		this.supperClass = supperClass;
+	
+
+	
+	
+	
+	
+	
+}
+
+class Enume{
+	@XmlElement
+	private String name;
+	@XmlElement
+	private String value;
+	
+	public Enume() {}
+	
+	public Enume(String name, String value) {
+		super();
+		this.name = name;
+		this.value = value;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
+	
+	
 }
