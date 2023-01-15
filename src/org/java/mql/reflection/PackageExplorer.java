@@ -4,148 +4,124 @@ import java.io.File;
 import java.util.List;
 import java.util.Vector;
 
+import org.java.mql.models.PackageModel;
+
+@SuppressWarnings("rawtypes")
 public class PackageExplorer {
-	private List<String> classNames;
 	private List<PackageExplorer> packageNames;
-	private static String urlProjet;
-	private boolean containPackage = false;
-	private boolean containeClasse = false;
+	private List<PackageModel> packageModels;
+	private List<Class> classes;
+	private String name = "";
+	private String abslutePath;
+	private File dir;
+
+	public PackageExplorer(String url) {
+		packageNames = new Vector<PackageExplorer>();
+		this.abslutePath = url;
+		dir = new File(url);
+		findPackages();
+
+		this.classes = new Vector<Class>();
+	}
+
+	public PackageExplorer(String url, String name) {
+
+		this(url);
+		this.name = name;
+		if (containClass(dir)) {
+			loadClasses();
+		}
+	}
+
+	private boolean isPackage(File file) {
+		int i = 0;
+		if (file.listFiles() != null) {
+			for (File f : file.listFiles()) {
+				if (f.isFile() && f.getName().endsWith(".class"))
+					return true;
+				else if (f.isDirectory())
+					i++;
+			}
+		}
+
+		return i > 1;
+
+	}
+
 	
 
-    private PackageExplorer(String packageName) {
-          classNames = new Vector<String>();
-          packageNames = new Vector<PackageExplorer>();
-          listClasse(packageName);
-	 }
-	
-	
-	public PackageExplorer() {
-		packageNames = new Vector<PackageExplorer>();
-		  listClasse();
-		 
-	}
-	
-     
-	private void listClasse(String packageName) {
-		   File dirPack = new File(urlProjet+"\\\\bin\\"+packageName);
-		   if(dirPack.listFiles()!=null) {
-			   for(File file:dirPack.listFiles()) {
-				   if(file.isFile()) {
-					   if(file.getName().endsWith(".class")) {
-						   containeClasse = true;
-						   classNames.add(file.getName().replace(".class", ""));
-					   }
-				   }else if(file.isDirectory()) {
-					   if(isPackage(file)) {
-						   containPackage = true;
-						   packageNames.add(new PackageExplorer(file.getAbsolutePath().replace(urlProjet+"\\bin\\", "")));
-						   
-					   }else {
-						   String pack = getPackage(file);
-						   if(pack!=null) {
-							   
-							   containPackage = true; 
-							   packageNames.add(new PackageExplorer(pack));
-						   } 
-					   }
-				   }
-			   }
-		   }
-	}
-	
-	private void listClasse() {
-		File dirBin = new File(urlProjet+"\\bin");
-		 if (dirBin.listFiles()!=null) {
-			   for(File file:dirBin.listFiles()) {
-				   if(isPackage(file)) {
-					   containPackage = true;
-					   packageNames.add(new PackageExplorer(file.getName()));
-				   }else if(file.isDirectory()) {
-					   String pack = getPackage(file);
-					   if(pack!=null) {
-						   containPackage = true; 
-						   packageNames.add(new PackageExplorer(pack));
-					   }
-				   }
-			   }
+	// define a method to traverse a directory and determine the packages and
+	// subpackages
+	private void findPackages() {
+
+		for (File file : dir.listFiles()) {
+			if (file.isDirectory()) {
+				if (isPackage(file)) {
+					if (isParent(dir, file)) {
+						packageNames.add(new PackageExplorer(file.getAbsolutePath(), file.getAbsolutePath()));
+					}
+					
+
+				} else {
+					dir = new File("" + file.getAbsoluteFile());
+					 findPackages();
+				}
+			}
 		}
-		
+
 	}
-	
-	private boolean containCLass(File directory) {
-		   if(directory.listFiles()!=null) {
-			   for(File file:directory.listFiles()) {
-				   if(file.getName().endsWith(".class")) {
-					   return true;
-				   }
-			   }
-		   }
+
+	// private load Packages
+	private void loadClasses() {
+		classes.addAll(new ClassExplorer(abslutePath).getClasss());
+		
+
+	}
+
+	public void show(List<PackageExplorer> packageNames) {
+		for (PackageExplorer pack : packageNames) {
+			System.out.println("-----debut Pack: " + pack.name + " -----");
+			System.out.println("-----size: " + pack.getPackageNames().size() + "-----");
+			show(pack.getPackageNames());
+			System.out.println("-----fin Pack: " + pack.name + " -----");
+
+		}
+	}
+
+	private boolean containClass(File dir) {
+
+		if (dir.listFiles() != null) {
+			for (File file : dir.listFiles()) {
+				if (file.isFile()) {
+					if (file.getName().endsWith(".class")) {
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
-	
-	private boolean isPackage(File directory) {
-		   
-		int nb = 0;
-            if(directory.listFiles()!=null) {
-            	for(File file:directory.listFiles()) {
-            		if(file.isFile()) {
-            			if(file.getName().endsWith(".class")) {
-            				return true;
-            			}
-            		}if(file.isDirectory()) {
-            			nb++;
-            		}
-            	}
-            }
-		return nb>1;
-	}
-	
-	private void addClasses(File file) {
-		if(file.listFiles()!=null) {
-			   for(File f:file.listFiles()) {
-				   if(f.getName().endsWith(".class")) {
-					   classNames.add(file.getName().replace(".class", ""));
-				   }
-			   }
-		}
-	}
-	private String getPackage(File file) {
-           if(!isPackage(file)) {
-        	   if(file.listFiles().length>0) {
-        		   return getPackage(new File(file.getAbsolutePath()+"\\"
-            			   +file.listFiles()[0].getName()));
-        	   }
-        	   
-           }
-        	   
-           
-           return file.getAbsolutePath().replace(urlProjet+"\\bin\\", "");
-		
-		
-	}
-	
-	
-	
-	public static void setUrlProject(String urlProjet) {
-		PackageExplorer.urlProjet = urlProjet;
-	}
-	
-	public List<String> getclassNames(){
-		return classNames;
+
+	private static boolean isParent(File parent, File fils) {
+
+		String parentFile = parent.getAbsolutePath();
+		String filsFile = fils.getAbsolutePath();
+		filsFile = filsFile.substring(0, filsFile.lastIndexOf("\\"));
+		return parentFile.equals(filsFile);
 	}
 
 	public List<PackageExplorer> getPackageNames() {
 		return packageNames;
 	}
 
-
-	public boolean isContainPackage() {
-		return containPackage;
+	public List<Class> getClasses() {
+		return classes;
 	}
 
-
-	public boolean isContaineClasse() {
-		return containeClasse;
+	public String getName() {
+		return name;
 	}
 	
+	
+
 }

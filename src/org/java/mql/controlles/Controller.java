@@ -3,6 +3,7 @@ package org.java.mql.controlles;
 import java.util.List;
 import java.util.Vector;
 
+import org.java.mql.annotation.XmlElement;
 import org.java.mql.models.ClasseModel;
 import org.java.mql.models.ConstructeurModel;
 import org.java.mql.models.EnumModel;
@@ -19,7 +20,7 @@ import java.lang.reflect.Parameter;
 
 @SuppressWarnings("rawtypes")
 public class Controller {
-	
+	@XmlElement(name="Class")
 	private List<ClasseModel> classeModels;
 	private List<InterfaceModel> interfaceMdels;
 	private List<EnumModel> enumModels;

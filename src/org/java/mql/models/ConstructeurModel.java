@@ -3,8 +3,10 @@ package org.java.mql.models;
 import java.util.List;
 import java.util.Vector;
 
+import org.java.mql.annotation.Entities;
 import org.java.mql.annotation.XmlElement;
 
+@Entities("Constructeur")
 public class ConstructeurModel {
 	 @XmlElement
 	 private String name;

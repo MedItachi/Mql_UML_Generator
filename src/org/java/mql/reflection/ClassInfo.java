@@ -20,6 +20,7 @@ public class ClassInfo {
 	private String name = "";
 
 	public ClassInfo(Class<?> classe) {
+		
 		this.classe = classe;
 		init();
 		config();
