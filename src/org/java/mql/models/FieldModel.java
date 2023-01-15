@@ -1,7 +1,9 @@
 package org.java.mql.models;
 
+import org.java.mql.annotation.Entities;
 import org.java.mql.annotation.XmlElement;
 
+@Entities("Fileds")
 public class FieldModel {
 	@XmlElement(name="Modifier")
 	private String modifier;
