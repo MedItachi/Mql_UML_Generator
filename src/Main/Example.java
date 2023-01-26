@@ -1,19 +1,27 @@
 package Main;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.List;
 import java.util.Vector;
+
+import javax.swing.JFrame;
 
 import org.java.mql.controlles.Controller;
 import org.java.mql.controlles.ControllerPackage;
 import org.java.mql.models.ClasseModel;
 import org.java.mql.persist.Persistance;
 import org.java.mql.reflection.ClassExplorer;
+import org.java.mql.reflection.ClassModeltoClassUi;
 import org.java.mql.reflection.PackageExplorer;
+import org.java.mql.ui.UmlDraw;
 
-public class Example {
+public class Example extends JFrame  {
+
+	private static final long serialVersionUID = 1L;
 
 	public Example() {
-		exp02();
+		exp03();
 	}
 
 	void exp01() {
@@ -32,14 +40,31 @@ public class Example {
 		per.saveDoc("PackageDoc");
         
 	}
+	
 
+
+	 //Draw
 	void exp03() {
-		//PackageExplorer pack = new PackageExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\PackageTest\\bin");
-		// PackageExplorer pack = new
-		// PackageExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\UML_Generator\\bin");
-		// System.out.println("taille:"+pack.getPackageNames().size());
-        //new ControllerPackage(pack.getPackageNames());
-
+		
+		PackageExplorer packageExplore = new PackageExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\UmlGenTest\\bin");
+		// packageExplore.show(packageExplore.getPackageNames());
+		ControllerPackage cont = new ControllerPackage(packageExplore.getPackageNames());
+		Persistance per = new Persistance(cont.getPackageModels());
+		per.saveDoc("PackageDoc");
+		
+		
+	
+        
+        pack();
+        this.setVisible(true);
+        Dimension DimMax = Toolkit.getDefaultToolkit().getScreenSize();
+        UmlDraw uml = new UmlDraw(cont.getPackageModels(),(int)DimMax.getWidth(),(int) DimMax.getHeight());
+        this.setContentPane(uml);
+        setMaximumSize(DimMax);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setResizable(false);
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
 	}
 
 	void exp04() {
@@ -48,8 +73,7 @@ public class Example {
 	}
 	
 	void exp05() {
-		ClassExplorer clsExplorer = new ClassExplorer("C:\\Users\\Mohamed\\Documents\\mqL\\PackageTest\\bin\\demo\\org\\test");
-	
+		
 	}
 	
 	//Example For parser
